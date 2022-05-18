@@ -35,3 +35,10 @@ SycFormatSourceCodeCommand compile:'prepareFullExecutionInContext: aToolContext
 	
 	sourceCodeEditor := aToolContext methodEditor'
 ]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> prepareWorkshop [
+
+	<script>
+	self introduceBugs
+]
