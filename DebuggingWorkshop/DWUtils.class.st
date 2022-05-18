@@ -40,5 +40,6 @@ SycFormatSourceCodeCommand compile:'prepareFullExecutionInContext: aToolContext
 DWUtils class >> prepareWorkshop [
 
 	<script>
+	Author fullName: 'author'.
 	self introduceBugs
 ]
