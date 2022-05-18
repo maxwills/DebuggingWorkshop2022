@@ -1,11 +1,11 @@
 Class {
-	#name : #SteppingExplanation,
+	#name : #DebuggingFeaturesDemo,
 	#superclass : #Object,
-	#category : #DebuggingWorkshop
+	#category : #'DebuggingWorkshop-Workshop'
 }
 
 { #category : #'as yet unclassified' }
-SteppingExplanation >> doBlock: aBlock [
+DebuggingFeaturesDemo >> doBlock: aBlock [
 
 "You failed :( 
 Remember to use StepThrough next time.
@@ -17,13 +17,13 @@ the execution would not stop in this code.
 ]
 
 { #category : #'as yet unclassified' }
-SteppingExplanation >> getPoemEndingString [
+DebuggingFeaturesDemo >> getPoemEndingString [
 
 	^ 'I am not a debugging expert',String cr, 'and neither are you :p'
 ]
 
 { #category : #printing }
-SteppingExplanation >> printFirstVerse [
+DebuggingFeaturesDemo >> printFirstVerse [
 
 	"Don't enter methods by using stepOver"
 
@@ -33,7 +33,7 @@ SteppingExplanation >> printFirstVerse [
 ]
 
 { #category : #printing }
-SteppingExplanation >> printMeAPoem [
+DebuggingFeaturesDemo >> printMeAPoem [
 
 	"1. Enter methods with stepInto"
 
@@ -42,7 +42,7 @@ SteppingExplanation >> printMeAPoem [
 	" 2.Don't enter methods by using stepOver"
 	self printSecondVerse.
 
-	" 3. use stepThrough a couple times to advance the execution until next expression of this code"
+	" 3. StepOver once to hightlight the message send. Then use stepThrough to advance the execution until next expression of this code"
 	self doBlock: [
 		"it should step to here"
 		"now step into to continue"
@@ -51,7 +51,7 @@ SteppingExplanation >> printMeAPoem [
 ]
 
 { #category : #printing }
-SteppingExplanation >> printPoemEnding [
+DebuggingFeaturesDemo >> printPoemEnding [
 	"Press Proceed to resume the execution (no more debubugging)"
 	Transcript
 		show: self getPoemEndingString;
@@ -61,7 +61,7 @@ SteppingExplanation >> printPoemEnding [
 ]
 
 { #category : #printing }
-SteppingExplanation >> printSecondVerse [
+DebuggingFeaturesDemo >> printSecondVerse [
 
 	"I am dissapoint :(. Just press stepOver this time :)"
 

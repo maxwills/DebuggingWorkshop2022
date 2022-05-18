@@ -1,7 +1,7 @@
 Class {
 	#name : #SteppingChallenge,
 	#superclass : #TestCase,
-	#category : #DebuggingWorkshop
+	#category : #'DebuggingWorkshop-Workshop'
 }
 
 { #category : #'as yet unclassified' }

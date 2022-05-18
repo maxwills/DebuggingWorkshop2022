@@ -1,7 +1,7 @@
 Class {
 	#name : #DebuggingWorkshop,
 	#superclass : #Object,
-	#category : #DebuggingWorkshop
+	#category : #'DebuggingWorkshop-Workshop'
 }
 
 { #category : #'as yet unclassified' }

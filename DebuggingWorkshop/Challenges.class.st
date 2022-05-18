@@ -7,7 +7,7 @@ Class {
 	#classInstVars : [
 		'answers'
 	],
-	#category : #DebuggingWorkshop
+	#category : #'DebuggingWorkshop-Workshop'
 }
 
 { #category : #'as yet unclassified' }

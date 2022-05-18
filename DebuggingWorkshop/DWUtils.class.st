@@ -37,6 +37,30 @@ SycFormatSourceCodeCommand compile:'prepareFullExecutionInContext: aToolContext
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> menu00DebWorkshopOn: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #DebWorkshop)
+		label: 'DebuggingWorkshop';
+		icon: (self iconNamed: 'smallExpert');
+		help: 'DebuggingWorkshop commands';
+		order: 100
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> menu01BrowseChallenges: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #Challenges)
+		parent: #DebWorkshop;
+		action: [ Challenges class browse ];
+		label: 'Browse Challenges class';
+		icon: (self iconNamed: 'nautilus');
+		help: 'Browse Challenges';
+		order: 1
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> prepareWorkshop [
 
 	<script>
