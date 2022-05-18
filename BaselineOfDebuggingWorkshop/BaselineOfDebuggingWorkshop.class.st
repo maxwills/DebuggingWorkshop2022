@@ -11,7 +11,7 @@ BaselineOfDebuggingWorkshop >> baseline: spec [
 	spec for: #common do: [ 
 		spec
 			package: 'DebuggingWorkshop';
-			package: 'DebuggingWorkshop-Test'.
+			package: 'DebuggingWorkshop-Tests'.
 		spec postLoadDoIt: #postload:package: ]
 ]
 
