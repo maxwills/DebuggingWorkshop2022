@@ -42,7 +42,12 @@ Challenges class >> launchTask1 [
 { #category : #'as yet unclassified' }
 Challenges class >> task1ChallengePlaygroundCode [
 
-	self flag: 'Challenge1: Step and inspect. What is the value of x?'.
+	"Stepping Challenge. 
+	
+	Debug the following program.
+	Using only stepping and inspecting values, answer:
+	What is the value of x?"
+	
 	SteppingChallenge new lvl1: [ 
 		| r x |
 		r := Random new

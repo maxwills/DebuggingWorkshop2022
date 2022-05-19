@@ -87,12 +87,73 @@ DWUtils class >> menu03ShowSteppingChallenge: aBuilder [
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> menu04RestoreOrderedCollectionAdd: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #RestoreOrderedCollectionAdd)
+		parent: #DebWorkshop;
+		action: [ self restoreOrderedCollectionAdd ];
+		label: 'Restore OrderedCollection>>#add: source code';
+		icon: (self iconNamed: 'repair');
+		help: 'Restore OrderedCollection>>#add: source code';
+		order: 3
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> menu05RemoveAllUInstrumentation: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #RemoveAllInstrumentation)
+		parent: #DebWorkshop;
+		action: [ self restoreOrderedCollectionAdd ];
+		label: 'Remove All Instrumentation';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Remove All Instrumentation';
+		order: 4
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> patchClyOldMessageBrowserAdapter [
+
+	"Fixes a bug related to browsing implementors that filtered out proxified methods"
+
+	<script>
+	ClyOldMessageBrowserAdapter compile: 'messages: anObject
+
+	messages := anObject collect: [ :m | 
+		            (m respondsTo: #unproxifiedMethod)
+			            ifTrue: [ m unproxifiedMethod ]
+			            ifFalse: [ m ] ]'
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> patchMpMethodProxy [
+
+	"Fixes a calypso bug related to proxies"
+
+	<script>
+	MpMethodProxy compile: 'calypsoEnvironmentType
+	"See QuickWrapMethodProxy >> #calypsoEnvironmentType"
+	^ proxifiedMethod calypsoEnvironmentType'
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> prepareWorkshop [
 
 	<script>
 	Author fullName: 'author'.
 	self introduceBugs.
+	self patchClyOldMessageBrowserAdapter.
+	self patchMpMethodProxy.
 	self resetKeyshortcuts
+]
+
+{ #category : #removing }
+DWUtils class >> removeAllInstrumentation [
+
+	<script>
+	InstrumentationUtils uninstallAllLinks.
+	InstrumentationUtilsMethodProxies uninstallAll
 ]
 
 { #category : #initialization }

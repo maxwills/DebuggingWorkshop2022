@@ -5,16 +5,8 @@ Class {
 		'enabled',
 		'counter'
 	],
-	#category : #DebuggingWorkshop
+	#category : #'DebuggingWorkshop-Utils'
 }
-
-{ #category : #logging }
-ALoggingTool class >> clear [
-
-	<script>
-	counter := 0.
-	Transcript clear
-]
 
 { #category : #accessing }
 ALoggingTool class >> counter [
@@ -43,8 +35,17 @@ ALoggingTool class >> enabled: anObject [
 { #category : #logging }
 ALoggingTool class >> log: aString [
 
+	self enabled ifFalse: [ ^ self ].
 	counter := self counter + 1.
 	Transcript
 		show: counter asString , '. ' , aString;
 		cr
+]
+
+{ #category : #logging }
+ALoggingTool class >> reset [
+
+	<script>
+	counter := 0.
+	Transcript clear
 ]
