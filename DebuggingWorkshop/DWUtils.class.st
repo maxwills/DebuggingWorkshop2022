@@ -105,7 +105,7 @@ DWUtils class >> menu05RemoveAllUInstrumentation: aBuilder [
 	<worldMenu>
 	(aBuilder item: #RemoveAllInstrumentation)
 		parent: #DebWorkshop;
-		action: [ self restoreOrderedCollectionAdd ];
+		action: [ self removeAllInstrumentation ];
 		label: 'Remove All Instrumentation';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Remove All Instrumentation';
