@@ -113,6 +113,19 @@ DWUtils class >> menu05RemoveAllUInstrumentation: aBuilder [
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> menu06ClearLogger: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #ClearLogger)
+		parent: #DebWorkshop;
+		action: [ "Yourlogger reset" ];
+		label: 'Reset Logger';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Reset Logger';
+		order: 8
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> patchClyOldMessageBrowserAdapter [
 
 	"Fixes a bug related to browsing implementors that filtered out proxified methods"
