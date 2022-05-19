@@ -91,7 +91,5 @@ EggHunter >> storeAnEggInRandomBag: random [
 
 	| bag |
 	bag := bags at: (random nextIntegerBetween: 1 and: bags size).
-	bag add: (Egg new
-			 id: (random nextIntegerBetween: 1 and: 1000000);
-			 yourself)
+	bag add: Egg new
 ]

@@ -65,5 +65,43 @@ DWUtils class >> prepareWorkshop [
 
 	<script>
 	Author fullName: 'author'.
-	self introduceBugs
+	self introduceBugs.
+	self resetKeyshortcuts
+]
+
+{ #category : #initialization }
+DWUtils class >> resetKeyshortcuts [
+
+	"Nothing to do with reflectio, but I didnt want to create a class just for this method"
+
+	"Resets the KeyMappings, so the new shortcuts are activated"
+
+	<script>
+	KMRepository reset
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> restoreOrderedCollectionAdd [
+	"Programmatically recompiles the original code of OrderedCollection>>add:"
+	"Click the script icon in the method list to restore the method OrderedCollection>>add:"
+	<script>
+	OrderedCollection compile: 'add: newObject
+	
+	"Add a new object at the end of the collection, and returns the object itself"
+
+	"((OrderedCollection new add: 42; yourself) add: 43; yourself) asArray >>> #(42 43)"
+
+	"Add returns the object itself"
+
+	"(OrderedCollection new add: 42) >>> 42"
+
+	"You may want to use yourself to return the collection itself"
+
+	"(OrderedCollection new add: 42; yourself) class >>> OrderedCollection"
+
+	"(OrderedCollection new add: 42; yourself) size >>> 1"
+
+	
+	^ self addLast: newObject'.
+	self inform: '(OrderedCollection >> add:) has been restored'
 ]

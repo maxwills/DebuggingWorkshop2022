@@ -9,6 +9,22 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+EggHunt class >> eggHuntCode [
+
+	"This is the execution we must explore"
+
+	| huntEvent winner |
+	huntEvent := EggHunt new.
+	huntEvent giveHuntersSomeBags.
+	huntEvent goHunting.
+	winner := huntEvent calculateRanks first.
+	^ winner
+	
+"Q1. How many times OrderedCollection>>#add: is called? (with Egg Objects?)"
+"Q2. How many times any method with selector add: is called? (with Egg or Hunter Objects? which method?)"
+]
+
+{ #category : #'as yet unclassified' }
 EggHunt class >> letItBegin [
 
 	| a winner |
@@ -18,6 +34,19 @@ EggHunt class >> letItBegin [
 	winner := a calculateRanks first.
 	winner biggestBagSize.
 	^ winner
+]
+
+{ #category : #'as yet unclassified' }
+EggHunt class >> openInPlayground [
+
+	<script>
+	| code removeSubstrings |
+	removeSubstrings := [ :str :substr | str copyReplaceAll: substr with: '' ].
+
+	code := (self class >> #eggHuntCode) sourceCode.
+	code := removeSubstrings value: code value: String tab.
+	code := removeSubstrings value: code value: 'eggHuntCode'.
+	StPlayground openContents: code trim
 ]
 
 { #category : #'as yet unclassified' }
