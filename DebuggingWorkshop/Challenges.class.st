@@ -3,7 +3,7 @@ A DebuggingWorkshopTest is a test class for testing the behavior of DebuggingWor
 "
 Class {
 	#name : #Challenges,
-	#superclass : #TestCase,
+	#superclass : #Object,
 	#classInstVars : [
 		'answers'
 	],

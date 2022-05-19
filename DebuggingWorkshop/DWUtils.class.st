@@ -50,13 +50,39 @@ DWUtils class >> menu00DebWorkshopOn: aBuilder [
 { #category : #'as yet unclassified' }
 DWUtils class >> menu01BrowseChallenges: aBuilder [
 
-	<worldMenu>
+	"<worldMenu>"
 	(aBuilder item: #Challenges)
 		parent: #DebWorkshop;
 		action: [ Challenges class browse ];
 		label: 'Browse Challenges class';
 		icon: (self iconNamed: 'nautilus');
 		help: 'Browse Challenges';
+		order: 1
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> menu02ShowEggHunt: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #ShowEgghunt)
+		parent: #DebWorkshop;
+		action: [ EggHunt openInPlayground ];
+		label: 'Open EggHunt in Playground';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Open EggHunt in Playground';
+		order: 2
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> menu03ShowSteppingChallenge: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #ShowSteppingChallenge)
+		parent: #DebWorkshop;
+		action: [ Challenges launchTask1 ];
+		label: 'Stepping Challenge';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Stepping Challenge';
 		order: 1
 ]
 
@@ -104,4 +130,22 @@ DWUtils class >> restoreOrderedCollectionAdd [
 	
 	^ self addLast: newObject'.
 	self inform: '(OrderedCollection >> add:) has been restored'
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils >> doLoggingOfEggsExample [
+
+	| ourClasses |
+	ourClasses := { 
+		              Egg.
+		              EggHunter
+		              "EggHunt" }.
+	(thisContext findContextSuchThat: [ :ctx | 
+		 ctx method selector = #add: ]) ifNotNil: [ :ctx | 
+		| newObject |
+		newObject := ctx arguments first.
+		newObject isAssociation ifTrue: [ newObject := newObject value ].
+		(ourClasses includes: newObject class) ifTrue: [ 
+			ALoggingTool log:
+				ctx receiver class name , ' >> add: called from instrumentation' ] ]
 ]

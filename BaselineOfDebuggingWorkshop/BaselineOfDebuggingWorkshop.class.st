@@ -8,6 +8,7 @@ Class {
 BaselineOfDebuggingWorkshop >> baseline: spec [
 
 	<baseline>
+	spec baseline: 'MethodProxies' with: [ spec repository: 'github://maxwills/MethodProxies/src' ].
 	spec for: #common do: [ 
 		spec
 			package: 'DebuggingWorkshop';
