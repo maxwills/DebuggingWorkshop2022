@@ -16,12 +16,14 @@ InstrumentationUtils class >> doLoggingOfAddedEggs [
 		              Egg.
 		              EggHunter.
 		              EggHunt }.
-	(thisContext findContextSuchThat: 1) ifNotNil: [ :ctx | 
+	(thisContext findContextSuchThat: [ :ctx | 
+		 ctx method selector = #add: ]) ifNotNil: [ :ctx | 
 		| newObject |
 		newObject := ctx arguments first.
 		newObject isAssociation ifTrue: [ newObject := newObject value ].
 		(ourClasses includes: newObject class) ifTrue: [ 
-			ALoggingTool log: ctx receiver class name , ' >> add: called from instrumentation' ] ]
+			ALoggingTool log:
+				ctx receiver class name , ' >> add: called from instrumentation' ] ]
 ]
 
 { #category : #'as yet unclassified' }

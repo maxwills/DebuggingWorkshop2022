@@ -131,21 +131,3 @@ DWUtils class >> restoreOrderedCollectionAdd [
 	^ self addLast: newObject'.
 	self inform: '(OrderedCollection >> add:) has been restored'
 ]
-
-{ #category : #'as yet unclassified' }
-DWUtils >> doLoggingOfEggsExample [
-
-	| ourClasses |
-	ourClasses := { 
-		              Egg.
-		              EggHunter
-		              "EggHunt" }.
-	(thisContext findContextSuchThat: [ :ctx | 
-		 ctx method selector = #add: ]) ifNotNil: [ :ctx | 
-		| newObject |
-		newObject := ctx arguments first.
-		newObject isAssociation ifTrue: [ newObject := newObject value ].
-		(ourClasses includes: newObject class) ifTrue: [ 
-			ALoggingTool log:
-				ctx receiver class name , ' >> add: called from instrumentation' ] ]
-]
