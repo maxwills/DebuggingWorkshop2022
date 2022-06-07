@@ -14,7 +14,7 @@ InstrumentationUtilsMethodProxies class >> ex3_installLoggingWithMethodProxies [
 			| newObject |
 			newObject := args first.
 			newObject class = Egg ifTrue: [ 
-				ALoggingTool log:
+				ExampleLogger log:
 					'OrderedColleciton >> add: called from instrumentation (MethodProxy)' ] ]
 ]
 

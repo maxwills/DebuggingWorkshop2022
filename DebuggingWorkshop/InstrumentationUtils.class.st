@@ -22,7 +22,7 @@ InstrumentationUtils class >> doLoggingOfAddedEggs [
 		newObject := ctx arguments first.
 		newObject isAssociation ifTrue: [ newObject := newObject value ].
 		(ourClasses includes: newObject class) ifTrue: [ 
-			ALoggingTool log:
+			ExampleLogger log:
 				ctx receiver class name , ' >> add: called from instrumentation' ] ]
 ]
 
@@ -38,7 +38,7 @@ InstrumentationUtils class >> doLoggingOfAddedEggsSimple [
 		| newObject |
 		newObject := ctx arguments first.
 		newObject class = Egg ifTrue: [ 
-			ALoggingTool log:
+			ExampleLogger log:
 				'OrderedCollection >> add: called from instrumentation' ] ]
 ]
 

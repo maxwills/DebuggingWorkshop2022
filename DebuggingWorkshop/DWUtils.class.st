@@ -48,15 +48,15 @@ DWUtils class >> menu00DebWorkshopOn: aBuilder [
 ]
 
 { #category : #'as yet unclassified' }
-DWUtils class >> menu01BrowseChallenges: aBuilder [
+DWUtils class >> menu01BrowseActivity01: aBuilder [
 
-	"<worldMenu>"
-	(aBuilder item: #Challenges)
+	<worldMenu>
+	(aBuilder item: #DWSActivity1)
 		parent: #DebWorkshop;
-		action: [ Challenges class browse ];
-		label: 'Browse Challenges class';
-		icon: (self iconNamed: 'nautilus');
-		help: 'Browse Challenges';
+		action: [ BaptismByFireHints class browse ];
+		label: 'Act 01 - BaptismByFire scripts';
+		icon: (self iconNamed: 'smallNew');
+		help: 'Browses BaptimsByFire scripts';
 		order: 1
 ]
 
@@ -67,10 +67,10 @@ DWUtils class >> menu02ShowEggHunt: aBuilder [
 	(aBuilder item: #ShowEgghunt)
 		parent: #DebWorkshop;
 		action: [ EggHunt openInPlayground ];
-		label: 'Open EggHunt in Playground';
+		label: 'Act 03 - Open EggHunt in Playground';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Open EggHunt in Playground';
-		order: 2
+		order: 3
 ]
 
 { #category : #'as yet unclassified' }
@@ -80,10 +80,10 @@ DWUtils class >> menu03ShowSteppingChallenge: aBuilder [
 	(aBuilder item: #ShowSteppingChallenge)
 		parent: #DebWorkshop;
 		action: [ Challenges launchTask1 ];
-		label: 'Stepping Challenge';
+		label: 'Act 02 - Stepping Challenge';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Stepping Challenge';
-		order: 1
+		order: 2
 ]
 
 { #category : #'as yet unclassified' }
@@ -96,7 +96,7 @@ DWUtils class >> menu04RestoreOrderedCollectionAdd: aBuilder [
 		label: 'Restore OrderedCollection>>#add: source code';
 		icon: (self iconNamed: 'repair');
 		help: 'Restore OrderedCollection>>#add: source code';
-		order: 3
+		order: 13
 ]
 
 { #category : #'as yet unclassified' }
@@ -109,7 +109,7 @@ DWUtils class >> menu05RemoveAllUInstrumentation: aBuilder [
 		label: 'Remove All Instrumentation';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Remove All Instrumentation';
-		order: 4
+		order: 14
 ]
 
 { #category : #'as yet unclassified' }
@@ -118,11 +118,11 @@ DWUtils class >> menu06ClearLogger: aBuilder [
 	<worldMenu>
 	(aBuilder item: #ClearLogger)
 		parent: #DebWorkshop;
-		action: [ "Yourlogger reset" ];
+		action: [ ExampleLogger reset"Yourlogger reset" ];
 		label: 'Reset Logger';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Reset Logger';
-		order: 8
+		order: 18
 ]
 
 { #category : #'as yet unclassified' }
@@ -204,4 +204,22 @@ DWUtils class >> restoreOrderedCollectionAdd [
 	
 	^ self addLast: newObject'.
 	self inform: '(OrderedCollection >> add:) has been restored'
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> tryShowJPGImage: url [
+
+	[ (ZnEasy getJpeg: url) asMorph openInWindow ] onErrorDo: [ :e | 
+		e class = NameLookupFailure ifTrue: [ 
+			^ self inform: 'Image url unreachable. Aborting.' ].
+		e resumeUnchecked: e ]
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> tryShowPNGImage: url [
+
+	[ (ZnEasy getPng: url) asMorph openInWindow ] onErrorDo: [ :e | 
+		e class = NameLookupFailure ifTrue: [ 
+			^ self inform: 'Image url unreachable. Aborting.' ].
+		e resumeUnchecked: e ]
 ]

@@ -11,7 +11,7 @@ Class {
 { #category : #'as yet unclassified' }
 EggHunt class >> eggHuntCode [
 
-	"This is the execution we must explore"
+	"This is the program we must explore"
 
 	| huntEvent winner |
 	huntEvent := EggHunt new.
@@ -21,7 +21,8 @@ EggHunt class >> eggHuntCode [
 	^ winner
 	
 "Q1. How many times OrderedCollection>>#add: is called? (with Egg Objects?)"
-"Q2. How many times any method with selector add: is called? (with Egg or Hunter Objects? which method?)"
+"Q2. From which methods is OrderedCollection>>#add: is called? (with Egg Objects?)"
+"Q3. How many times any method with selector add: is called? (with Egg or Hunter Objects? which method?)"
 ]
 
 { #category : #'as yet unclassified' }

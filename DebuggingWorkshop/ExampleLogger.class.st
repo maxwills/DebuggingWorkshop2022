@@ -1,5 +1,5 @@
 Class {
-	#name : #ALoggingTool,
+	#name : #ExampleLogger,
 	#superclass : #Object,
 	#classInstVars : [
 		'enabled',
@@ -9,31 +9,31 @@ Class {
 }
 
 { #category : #accessing }
-ALoggingTool class >> counter [
+ExampleLogger class >> counter [
 
 	^ counter ifNil: [ counter := 0 ]
 ]
 
 { #category : #accessing }
-ALoggingTool class >> counter: anObject [
+ExampleLogger class >> counter: anObject [
 
 	counter := anObject
 ]
 
 { #category : #accessing }
-ALoggingTool class >> enabled [
+ExampleLogger class >> enabled [
 
 	^ enabled ifNil: [ enabled := true ]
 ]
 
 { #category : #accessing }
-ALoggingTool class >> enabled: anObject [
+ExampleLogger class >> enabled: anObject [
 
 	enabled := anObject
 ]
 
 { #category : #logging }
-ALoggingTool class >> log: aString [
+ExampleLogger class >> log: aString [
 
 	self enabled ifFalse: [ ^ self ].
 	counter := self counter + 1.
@@ -43,7 +43,7 @@ ALoggingTool class >> log: aString [
 ]
 
 { #category : #logging }
-ALoggingTool class >> reset [
+ExampleLogger class >> reset [
 
 	<script>
 	counter := 0.
