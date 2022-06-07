@@ -1,6 +1,17 @@
 Extension { #name : #ToolShortcutsCategory }
 
 { #category : #'*DebuggingWorkshop' }
+ToolShortcutsCategory >> openDebuggerPartsImage [
+
+	<shortcut>
+	^ KMKeymap shortcut: $l meta shift action: [ 
+		  [ 
+		  (ZnEasy getPng:
+			   'https://github.com/maxwills/DebuggingWorkshop2022/raw/main/resources/debugger-parts.png')
+			  asMorph openInWindow ] onErrorDo: [ :e | e resumeUnchecked: e ] ]
+]
+
+{ #category : #'*DebuggingWorkshop' }
 ToolShortcutsCategory >> openIdea [
 
 	<shortcut>
