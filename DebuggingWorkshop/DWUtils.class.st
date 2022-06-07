@@ -70,7 +70,7 @@ DWUtils class >> menu02ShowEggHunt: aBuilder [
 		label: 'Act 03 - Open EggHunt in Playground';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Open EggHunt in Playground';
-		order: 2
+		order: 3
 ]
 
 { #category : #'as yet unclassified' }
@@ -96,7 +96,7 @@ DWUtils class >> menu04RestoreOrderedCollectionAdd: aBuilder [
 		label: 'Restore OrderedCollection>>#add: source code';
 		icon: (self iconNamed: 'repair');
 		help: 'Restore OrderedCollection>>#add: source code';
-		order: 3
+		order: 13
 ]
 
 { #category : #'as yet unclassified' }
@@ -109,7 +109,7 @@ DWUtils class >> menu05RemoveAllUInstrumentation: aBuilder [
 		label: 'Remove All Instrumentation';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Remove All Instrumentation';
-		order: 4
+		order: 14
 ]
 
 { #category : #'as yet unclassified' }
@@ -122,7 +122,7 @@ DWUtils class >> menu06ClearLogger: aBuilder [
 		label: 'Reset Logger';
 		"icon: (self iconNamed: 'nautilus');"
 		help: 'Reset Logger';
-		order: 8
+		order: 18
 ]
 
 { #category : #'as yet unclassified' }
