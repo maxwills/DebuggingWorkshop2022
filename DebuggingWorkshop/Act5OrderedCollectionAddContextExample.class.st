@@ -14,7 +14,7 @@ Act5OrderedCollectionAddContextExample >> add: newObject [
 		senderMethodName := thisContext sender selector.
 		senderMethodClassName := thisContext sender method methodClass name.
 		ExampleLogger log:
-			'add: method called from: ' , senderMethodClassName , '>>'
+			'#add: method called from: ' , senderMethodClassName , '>>'
 			, senderMethodName ].
 	^ self addLast: newObject
 ]
