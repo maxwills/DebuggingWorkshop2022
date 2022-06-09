@@ -148,6 +148,32 @@ DWUtils class >> menu07OpenGithubRepository: aBuilder [
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> menu08BrowseLogger: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #BrowseLogger)
+		parent: #DebWorkshop;
+		action: [ ExampleLogger class browse"Yourlogger reset" ];
+		label: 'Browse Logger Class';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Browse Logger';
+		order: 19
+]
+
+{ #category : #'as yet unclassified' }
+DWUtils class >> menu09BrowseAdd: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #BrowseAdd)
+		parent: #DebWorkshop;
+		action: [ (OrderedCollection>>#add:) browse"Yourlogger reset" ];
+		label: 'Browse OrderedCollection>>add:';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Browse Logger';
+		order: 19
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> patchClyOldMessageBrowserAdapter [
 
 	"Fixes a bug related to browsing implementors that filtered out proxified methods"
