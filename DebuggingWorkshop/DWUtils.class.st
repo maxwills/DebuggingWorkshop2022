@@ -37,6 +37,15 @@ SycFormatSourceCodeCommand compile:'prepareFullExecutionInContext: aToolContext
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> logAddCalled: args by: sender method: context sentTo: receiver [
+	|egg|
+	egg := args first.
+	(egg isKindOf: Egg) ifFalse:[^self].
+	self capturedEggs add: (context copyStack stack).
+	ExampleLogger log: 'Add called by ', sender printString, ' from ', context sender method printString, ' and sent to ', receiver printString
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> menu00DebWorkshopOn: aBuilder [
 
 	<worldMenu>
