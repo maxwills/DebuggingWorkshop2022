@@ -23,7 +23,7 @@ BaptismByFireHints class >> script00ShowBugReport [
 
 	<script>
 	DWUtils tryShowPNGImage:
-		'https://github.com/maxwills/DebuggingWorkshop2022/raw/main/resources/debugger-parts.png'
+		'https://github.com/maxwills/DebuggingWorkshop2022/raw/main/resources/act1_bug-report.png'
 ]
 
 { #category : #'as yet unclassified' }
