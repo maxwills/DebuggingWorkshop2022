@@ -126,6 +126,19 @@ DWUtils class >> menu06ClearLogger: aBuilder [
 ]
 
 { #category : #'as yet unclassified' }
+DWUtils class >> menu07OpenGithubRepository: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #OpenRepository)
+		parent: #DebWorkshop;
+		action: [ WebBrowser openOn: 'https://github.com/maxwills/DebuggingWorkshop2022'];
+		label: 'Debugging Workshop Repository (Opens a Web Browser)';
+		"icon: (self iconNamed: 'nautilus');"
+		help: 'Debugging Workshop Repository (Opens a Web Browser)';
+		order: 19
+]
+
+{ #category : #'as yet unclassified' }
 DWUtils class >> patchClyOldMessageBrowserAdapter [
 
 	"Fixes a bug related to browsing implementors that filtered out proxified methods"
