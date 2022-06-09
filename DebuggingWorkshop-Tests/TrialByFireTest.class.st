@@ -38,3 +38,9 @@ Good luck.
 	cmd execute.
 	self assert: checker testOk
 ]
+
+{ #category : #tests }
+TrialByFireTest >> testThatNeverFailsExample [
+
+	self assert: true
+]
